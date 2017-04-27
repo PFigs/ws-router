@@ -20,6 +20,16 @@ Routing data
 ============
 The point of this simple server is to /push data to all the clients that have /subscribed to the service.
 
+If you want to receive data, point each host to::
+
+> ws://<server_ip>:<server_port>/subscribe
+
+For the host pushing data, send its messages to::
+ 
+> ws://<server_ip>:<server_port>/push
+
+Messages arriving at */push* will be forwarded to all clients.
+
 Credits
 =======
 Pedro Silva
