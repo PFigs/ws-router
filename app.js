@@ -8,13 +8,11 @@ var morgan = require('morgan');
 var winston = require('winston');
 
 var app = express();
-//var expressWs = require('express-ws')(app);
 
 var clients = [];
-
 var serve_at = process.env.SERVE_AT | 3000
 
-if(process.env.NODE_ENV == 'https'){
+if(process.env.SERVE_HTTPS == 'https'){
   var ssl_options = {
     key: fs.readFileSync('./keys/server.key'),
     cert: fs.readFileSync('./keys/server.crt'),
