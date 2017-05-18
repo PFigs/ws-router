@@ -1,4 +1,3 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // Author: Pedro Silva
 var express = require('express');
 var fs = require('fs');
@@ -13,6 +12,7 @@ var clients = [];
 var serve_at = process.env.SERVE_AT | 3000
 
 if(process.env.SERVE_HTTPS == 'https'){
+  //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // if you want TLS to be rejected
   var ssl_options = {
     key: fs.readFileSync('./keys/server.key'),
     cert: fs.readFileSync('./keys/server.crt'),
@@ -61,5 +61,5 @@ function sendAll (message) {
 }
 
 server.listen(serve_at, function() {
-    winston.log('Express server listening on port ' + serve_at);
+    winston.info('Express server listening on port ' + serve_at);
 });
