@@ -3,8 +3,13 @@ Simple websocket server to route traffic from one host to another.
 
 Container
 =========
-docker pull pfigs/ws-router
+Fetch the image with
 
+> docker pull pfigs/ws-router
+
+Start the container as
+
+> docker run -d --name ws-router -p 3000:3000 ws-router
 
 Setup
 =====
