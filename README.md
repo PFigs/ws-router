@@ -1,6 +1,11 @@
 # ws-router
 Simple websocket server to route traffic from one host to another.
 
+Container
+=========
+docker pull pfigs/ws-router
+
+
 Setup
 =====
 Start by installing the necessary modules with::
