@@ -28,6 +28,7 @@ var expressWs = require('express-ws')(app, server);
 
 // lists itself
 app.ws('/subscribe', function(ws, req) {
+  winston.info('subscribing new user');
   clients.push(ws);
 });
 
