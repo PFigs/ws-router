@@ -46,16 +46,16 @@ function sendAll (message) {
     var status = clients[i].readyState;
     if(status == 1)
     { // bounce message to client
-      winston.log('info', 'posting message to client ' + i);
+      winston.info('posting message to client ' + i);
       clients[i].send("Message: " + message);
     }
     else if(status > 1)
     { // remove client
-      winston.log('info', 'Removing client');
+      winston.info('Removing client');
       clients.splice(i,1)
     }else
     { // wait for connection to establish
-      winston.log('info', 'Waiting for connection');
+      winston.info('Waiting for connection');
     }    
   }
 }
