@@ -19,12 +19,15 @@ Start by installing the necessary modules with::
 
 There are two environment variables that you can define to change the server behavior, SERVE_AT and SERVE_HTTPS.
 
-SERVE_AT : Port where https or http server will be located
-SERVE_HTTPS: Starts https server instead of http (requires key and ceritificate)
+-   SERVE_AT : Port where https or http server will be located
 
-Launch the process by::
+-   SERVE_HTTPS: Starts https server instead of http (requires key and ceritificate)
 
-> node app.js
+Launch the process with:
+
+```shell
+    node app.js
+```
 
 Routing data
 ============
@@ -40,6 +43,4 @@ For the host pushing data, send its messages to::
 
 Messages arriving at */push* will be forwarded to all clients.
 
-Credits
-=======
-Pedro Silva
+
