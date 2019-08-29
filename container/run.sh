@@ -2,9 +2,8 @@
 # Author
 # Pedro Silva
 
-ARCH=${ARCH:-"x86"}
-PORT=${PORT:-3000}
+PORT=${1:-3000}
 
 docker run -d --name ws-router \
-              -p "${PORT}:${PORT}" \
+              -p "${PORT}:3000" \
               pfigs/ws-router:latest
