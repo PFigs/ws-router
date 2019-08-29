@@ -3,23 +3,20 @@
 This repository contains a node application that acts as a websocket router, whose purpose it
 to forward any message it receives on *ip:port/push* to any client connected to *ip:port:/subscribe*.
 
+## Pre-requisites
 
-
-Pre-requisites
-==============
 - Node
 - npm
 
-Install
-=======
+## Install
+
 Clone the repository, checkout a release tag and install the package locally or globally (-g) with
 
 ```shell
     npm [-g] install
 ```
 
-Usage
-=====
+## Usage
 
 Start the application through npm
 
@@ -44,8 +41,8 @@ You can change router's port and transport by setting the following environment 
 -   SERVE_HTTPS: Starts https server instead of http (requires key and ceritificate)
 
 
-Routing data
-============
+### Routing data
+
 The point of this simple server is to *forward* data to all the clients that are *subscribed* to the service.
 
 If you want to receive data, connect to the subscribe route:
@@ -58,10 +55,10 @@ If you want to share data, send messages to the push route:
 
 Messages arriving at */push* will be forwarded to all clients.
 
+![here_usage]
 
 
-Running on Docker
-=================
+## Running on Docker
 
 A multi-architecture image is available from dockerhub's registry pfigs/ws-router.
 
@@ -81,4 +78,5 @@ You can also [build the image locally][here_docker_build] (requires docker's bui
 
 
 [here_docker_build]: https://github.com/PFigs/ws-router/blob/master/container/build.sh
+[here_usage]: https://github.com/PFigs/ws-router/blob/master/img/usage.gif
 
