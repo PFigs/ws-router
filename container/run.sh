@@ -1,5 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Author
 # Pedro Silva
 
-docker run -d --name ws-router -p 3000:3000 ws-router
+PORT=${1:-3000}
+
+docker run -d --name ws-router \
+              -p "${PORT}:3000" \
+              pfigs/ws-router:latest

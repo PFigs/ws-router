@@ -1,66 +1,36 @@
 // Author: Pedro Silva
-var express = require('express');
+// License: MIT
+
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
-var morgan = require('morgan');
-var winston = require('winston');
-
+var logger = require('./vars/log.js');
+var express = require('express');
 var app = express();
+var serve_at = process.env.SERVE_AT || 3000;
 
-var clients = [];
-var serve_at = process.env.SERVE_AT | 3000
-
-if(process.env.SERVE_HTTPS == 'https'){
-  //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // if you want TLS to be rejected
-  var ssl_options = {
-    key: fs.readFileSync('./keys/server.key'),
-    cert: fs.readFileSync('./keys/server.crt'),
-    ca: fs.readFileSync('./keys/server.crt')
-  };
-  var server = https.createServer(ssl_options, app);
-  
-}else{
-  var server = http.createServer(app);
+// handles https or http server creation
+if(process.env.SERVE_HTTPS == 'https')
+{
+    var ssl_options =
+    {
+        key: fs.readFileSync('./keys/server.key'),
+        cert: fs.readFileSync('./keys/server.crt'),
+        ca: fs.readFileSync('./keys/ca.crt')
+    };
+    var server = https.createServer(ssl_options, app);
+}
+else
+{
+    var server = http.createServer(app);
 }
 
 var expressWs = require('express-ws')(app, server);
 
-// lists itself
-app.ws('/subscribe', function(ws, req) {
-  winston.info('subscribing new user');
-  clients.push(ws);
-});
-
-// pushes data to clients
-app.ws('/push', function(ws, req) {
-  ws.on('message', function(msg) 
-  {
-    sendAll(msg);
-  });
-});
-
-// fwds messages to all the clients that are
-// currently subscribed
-function sendAll (message) {
-  for (var i=0; i<clients.length; i++) {
-    var status = clients[i].readyState;
-    if(status == 1)
-    { // bounce message to client
-      winston.info('posting message to client ' + i);
-      clients[i].send("Message: " + message);
-    }
-    else if(status > 1)
-    { // remove client
-      winston.info('Removing client');
-      clients.splice(i,1)
-    }else
-    { // wait for connection to establish
-      winston.info('Waiting for connection');
-    }    
-  }
+// imports routes and starts serving
+app.use(require('./routes/websocket.js'));
+server.listen(serve_at, function()
+{
+    logger.info('WS router listening on port ' + serve_at);
 }
-
-server.listen(serve_at, function() {
-    winston.info('Express server listening on port ' + serve_at);
-});
+);

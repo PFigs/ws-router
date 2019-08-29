@@ -1,9 +1,9 @@
 {
   "name": "router",
-  "version": "0.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node app.js",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
@@ -13,7 +13,7 @@
     "debug": "4.1.1",
     "express": "4.17.1",
     "express-ws": "4.0.0",
-    "jade": "1.11.0",
+    "pug": "2.0.4",
     "morgan": "1.9.1",
     "serve-favicon": "2.5.0",
     "winston": "3.2.1",
