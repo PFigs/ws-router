@@ -1,5 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Author
 # Pedro Silva
 
-docker run -d --name ws-router -p 3000:3000 ws-router
+ARCH=${ARCH:-"x86"}
+PORT=${PORT:-3000}
+
+docker run -d --name ws-router \
+              -p "${PORT}:${PORT}" \
+              pfigs/ws-router:latest
