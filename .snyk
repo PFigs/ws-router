@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -11,3 +11,40 @@ patch:
         patched: '2019-10-04T03:39:22.639Z'
     - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
         patched: '2019-10-04T03:39:22.639Z'
+  SNYK-JS-LODASH-567746:
+    - snyk > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - winston > async > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
+    - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-05-01T03:39:47.116Z'
