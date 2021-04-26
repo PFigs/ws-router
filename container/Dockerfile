@@ -1,7 +1,7 @@
 # Author
 #   Pedro Silva
 
-FROM node:12.11-alpine
+FROM node:12.22-alpine
 
 # Default port
 EXPOSE 3000
