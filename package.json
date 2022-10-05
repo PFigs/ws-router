@@ -13,11 +13,11 @@
     "debug": "4.1.1",
     "express": "4.17.1",
     "express-ws": "4.0.0",
-    "pug": "2.0.4",
+    "pug": "3.0.1",
     "morgan": "1.9.1",
     "serve-favicon": "2.5.0",
     "winston": "3.2.1",
-    "snyk": "1.231.0"
+    "snyk": "1.996.0"
   },
   "snyk": true
 }
